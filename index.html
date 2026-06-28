@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japón 2027 · Familia</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1C2B4A">
+  <meta name="description" content="Planificador del viaje familiar a Japón — Febrero/Marzo 2027">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-jp">日本</span>
+        <div class="brand-text">
+          <span class="brand-title">Japón 2027</span>
+          <span class="brand-sub">22 Feb — 21 Mar</span>
+        </div>
+      </div>
+      <nav class="tab-nav" role="navigation" aria-label="Secciones">
+        <button class="tab-btn active" data-tab="inicio">Inicio</button>
+        <button class="tab-btn" data-tab="itinerario">Itinerario</button>
+        <button class="tab-btn" data-tab="destinos">Destinos</button>
+        <button class="tab-btn" data-tab="autocaravana">Autocaravana</button>
+        <button class="tab-btn" data-tab="logistica">Logística</button>
+      </nav>
+      <div class="header-countdown">
+        <span id="header-days">···</span>
+        <span class="header-days-label">días</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== INICIO ===== -->
+    <section class="tab-section active" id="tab-inicio">
+      <div class="section-container">
+
+        <div class="hero">
+          <div class="hero-bg"></div>
+          <div class="hero-content">
+            <div class="hero-kana">の旅へ</div>
+            <h1 class="hero-title">Japón en Familia</h1>
+            <p class="hero-subtitle">22 de Febrero — 21 de Marzo, 2027</p>
+            <div class="countdown-block">
+              <div class="countdown-item">
+                <span id="cd-days">···</span>
+                <span class="cd-label">días</span>
+              </div>
+              <div class="countdown-sep">·</div>
+              <div class="countdown-item">
+                <span id="cd-hours">··</span>
+                <span class="cd-label">horas</span>
+              </div>
+              <div class="countdown-sep">·</div>
+              <div class="countdown-item">
+                <span id="cd-mins">··</span>
+                <span class="cd-label">min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-strip card">
+          <div class="route-node">
+            <span class="route-icon">🛫</span>
+            <span class="route-label">TFN</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node">
+            <span class="route-icon">🏛️</span>
+            <span class="route-label">MAD</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node route-node--hk">
+            <span class="route-icon">🏙️</span>
+            <span class="route-label">HKG</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node route-node--jp">
+            <span class="route-icon">🗾</span>
+            <span class="route-label">JAPÓN</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node route-node--hk">
+            <span class="route-icon">🏙️</span>
+            <span class="route-label">HKG</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node">
+            <span class="route-icon">🏛️</span>
+            <span class="route-label">MAD</span>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-node">
+            <span class="route-icon">🛬</span>
+            <span class="route-label">TFN</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card card">
+            <span class="stat-number">28</span>
+            <span class="stat-label">días de viaje</span>
+          </div>
+          <div class="stat-card card">
+            <span class="stat-number">4</span>
+            <span class="stat-label">bloques parentales</span>
+          </div>
+          <div class="stat-card card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">días en autocaravana</span>
+          </div>
+          <div class="stat-card card">
+            <span class="stat-number">5</span>
+            <span class="stat-label">destinos</span>
+          </div>
+        </div>
+
+        <div class="family-card card">
+          <h3 class="card-title">La Familia</h3>
+          <div class="family-grid">
+            <div class="family-member">
+              <span class="family-emoji">👨‍✈️</span>
+              <span class="family-name">Papá (Luis)</span>
+            </div>
+            <div class="family-member">
+              <span class="family-emoji">👩</span>
+              <span class="family-name">Mamá</span>
+            </div>
+            <div class="family-member">
+              <span class="family-emoji">🧒</span>
+              <span class="family-name">Hijo mayor</span>
+              <span class="family-age">~3 años</span>
+            </div>
+            <div class="family-member">
+              <span class="family-emoji">👶</span>
+              <span class="family-name">Hijo menor</span>
+              <span class="family-age">~10 meses</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Fases del viaje</h3>
+          <div class="phases-list" id="phases-list"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== ITINERARIO ===== -->
+    <section class="tab-section" id="tab-itinerario">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Itinerario</h2>
+          <p class="section-desc">28 días · 22 Feb — 21 Mar 2027 · Las notas se guardan automáticamente</p>
+        </div>
+        <div class="phase-legend" id="phase-legend"></div>
+        <div class="day-grid" id="day-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== DESTINOS ===== -->
+    <section class="tab-section" id="tab-destinos">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Destinos</h2>
+          <p class="section-desc">Lo que vamos a ver y hacer · Añade investigación en los bloques de notas</p>
+        </div>
+        <div class="dest-grid" id="dest-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== AUTOCARAVANA ===== -->
+    <section class="tab-section" id="tab-autocaravana">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Autocaravana</h2>
+          <p class="section-desc">10+ días de libertad sobre ruedas en Japón · 1–11 de Marzo 2027</p>
+        </div>
+        <div id="autocaravana-sections"></div>
+      </div>
+    </section>
+
+    <!-- ===== LOGÍSTICA ===== -->
+    <section class="tab-section" id="tab-logistica">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Logística</h2>
+          <p class="section-desc">Vuelos, alojamiento, documentación y checklists</p>
+        </div>
+        <div id="logistica-sections"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="save-toast" id="save-toast">💾 Guardado</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
