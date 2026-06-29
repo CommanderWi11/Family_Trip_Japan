@@ -3,338 +3,338 @@
 // ===== TRIP DATA =====
 
 const PHASES = [
-  { id: 'viaje-ida',     label: 'Vuelo de ida',      icon: '✈️',  color: '#C8D8E8', text: '#2B4A6B', days: 'Días 1–2',   dates: '22–23 Feb' },
-  { id: 'hong-kong',     label: 'Hong Kong',          icon: '🏙️',  color: '#E8D4C0', text: '#6B3B2B', days: 'Días 3–4',   dates: '24–25 Feb' },
-  { id: 'osaka-llegada', label: 'Osaka (llegada)',    icon: '🏯',  color: '#C8E8D0', text: '#2B6B3B', days: 'Días 5–7',   dates: '26–28 Feb' },
-  { id: 'autocaravana',  label: 'Autocaravana',       icon: '🚐',  color: '#F5E6C0', text: '#6B5020', days: 'Días 8–17',  dates: '1–10 Mar'  },
-  { id: 'hoteles',       label: 'Hoteles / Airbnbs',  icon: '🏨',  color: '#E0D0E8', text: '#4B2B6B', days: 'Días 18–23', dates: '11–16 Mar' },
-  { id: 'regreso',       label: 'Regreso',            icon: '✈️',  color: '#D0DCE8', text: '#2B3B6B', days: 'Días 24–28', dates: '17–21 Mar' },
+  { id: 'viaje-ida',     label: 'Outbound Flight',  icon: '✈️',  color: '#C8D8E8', text: '#2B4A6B', days: 'Days 1–2',   dates: '22–23 Feb' },
+  { id: 'hong-kong',     label: 'Hong Kong',         icon: '🏙️',  color: '#E8D4C0', text: '#6B3B2B', days: 'Days 3–4',   dates: '24–25 Feb' },
+  { id: 'osaka-llegada', label: 'Osaka (Arrival)',   icon: '🏯',  color: '#C8E8D0', text: '#2B6B3B', days: 'Days 5–7',   dates: '26–28 Feb' },
+  { id: 'autocaravana',  label: 'Campervan',         icon: '🚐',  color: '#F5E6C0', text: '#6B5020', days: 'Days 8–17',  dates: '1–10 Mar'  },
+  { id: 'hoteles',       label: 'Hotels / Airbnbs',  icon: '🏨',  color: '#E0D0E8', text: '#4B2B6B', days: 'Days 18–23', dates: '11–16 Mar' },
+  { id: 'regreso',       label: 'Return',            icon: '✈️',  color: '#D0DCE8', text: '#2B3B6B', days: 'Days 24–28', dates: '17–21 Mar' },
 ];
 
 const ITINERARY = [
-  { date: '2027-02-22', phase: 'viaje-ida',     loc: 'Tenerife → Madrid',  icon: '✈️', note: 'Vuelo TFN→MAD. Noche en Madrid o directamente al aeropuerto T4.' },
-  { date: '2027-02-23', phase: 'viaje-ida',     loc: 'Madrid → Hong Kong', icon: '✈️', note: 'Vuelo nocturno Cathay Pacific MAD→HKG. Con puntos Asiamiles. Llegada el día 24.' },
-  { date: '2027-02-24', phase: 'hong-kong',     loc: 'Hong Kong',          icon: '🏙️', note: 'Llegada HKG. Transfer a Discovery Bay. Check-in Albush Hotel. Descanso jet lag.' },
-  { date: '2027-02-25', phase: 'hong-kong',     loc: 'Hong Kong',          icon: '🏙️', note: 'Día en Discovery Bay. Ver a Giles y Christine. Paseo junto al mar.' },
-  { date: '2027-02-26', phase: 'osaka-llegada', loc: 'Hong Kong → Osaka',  icon: '✈️', note: 'Vuelo HKG→KIX (Osaka). Llegada a Japón. Check-in hotel o Airbnb en Osaka.' },
-  { date: '2027-02-27', phase: 'osaka-llegada', loc: 'Osaka',              icon: '🏯', note: 'Explorar Dotonbori y Namba. Gestionar reserva y recogida de la autocaravana.' },
-  { date: '2027-02-28', phase: 'osaka-llegada', loc: 'Osaka',              icon: '🏯', note: 'Último día antes de la autocaravana. Compras, mapa de ruta y preparación.' },
-  { date: '2027-03-01', phase: 'autocaravana',  loc: 'Osaka → Kobe',       icon: '🚐', note: 'Recoger autocaravana por la mañana. Primera parada en Kobe (30 km). ¡Empezamos!' },
-  { date: '2027-03-02', phase: 'autocaravana',  loc: 'Kobe',               icon: '🚐', note: '🥩 IMPRESCINDIBLE: Kobe Beef (Wagyu A5). Puerto de Kobe. Kitano Ijinkan.' },
-  { date: '2027-03-03', phase: 'autocaravana',  loc: 'Nara',               icon: '🚐', note: '🦌 Nara Park: los ciervos sagrados. Tōdai-ji. Perfecto para los niños. Carrito-friendly.' },
-  { date: '2027-03-04', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Llegada a Kyoto. Instalarse. Paseo por el barrio Gion al atardecer.' },
-  { date: '2027-03-05', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Fushimi Inari (temprano — antes de las masas). Kinkaku-ji por la tarde.' },
-  { date: '2027-03-06', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Arashiyama: bamboo grove y Tenryu-ji. Nishiki Market para comer y comprar.' },
-  { date: '2027-03-07', phase: 'autocaravana',  loc: 'Ruta por decidir',   icon: '🚐', note: 'Opciones: Hiroshima + Miyajima, Himeji, costa San\'in... Por decidir.' },
-  { date: '2027-03-08', phase: 'autocaravana',  loc: 'Ruta por decidir',   icon: '🚐', note: 'Por decidir según itinerario y estado de los niños.' },
-  { date: '2027-03-09', phase: 'autocaravana',  loc: 'Ruta por decidir',   icon: '🚐', note: 'Por decidir según itinerario final.' },
-  { date: '2027-03-10', phase: 'autocaravana',  loc: 'Ruta → Osaka',       icon: '🚐', note: 'Última noche en autocaravana. Volver camino a Osaka para devolver el vehículo.' },
-  { date: '2027-03-11', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Devolver autocaravana. Check-in hotel o Airbnb en Osaka. ¡A ducharse por fin!' },
-  { date: '2027-03-12', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Día libre en Osaka. Shinsaibashi, Tsutenkaku, zonas pendientes de ver.' },
-  { date: '2027-03-13', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Por decidir: excursión de día o descanso total en Osaka.' },
-  { date: '2027-03-14', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Por decidir.' },
-  { date: '2027-03-15', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Por decidir.' },
-  { date: '2027-03-16', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Último día en Japón. Compras finales, regalos, empacar maletas.' },
-  { date: '2027-03-17', phase: 'regreso',       loc: 'Osaka → Hong Kong',  icon: '✈️', note: 'Vuelo KIX→HKG. Hotel en Hong Kong (aeropuerto o Discovery Bay).' },
-  { date: '2027-03-18', phase: 'regreso',       loc: 'Hong Kong',          icon: '🏙️', note: 'Escala en HK. Descanso y preparar el largo vuelo nocturno de vuelta a casa.' },
-  { date: '2027-03-19', phase: 'regreso',       loc: 'Hong Kong → Madrid', icon: '✈️', note: 'Vuelo nocturno Cathay Pacific HKG→MAD. Con puntos Asiamiles.' },
-  { date: '2027-03-20', phase: 'regreso',       loc: 'Madrid',             icon: '🏨', note: 'Llegada a Madrid de madrugada. Noche en hotel T4 (IBIS, NH o similar).' },
-  { date: '2027-03-21', phase: 'regreso',       loc: 'Madrid → Tenerife',  icon: '✈️', note: '¡Vuelo final MAD→TFN! Bienvenidos a casa. Fin del viaje.' },
+  { date: '2027-02-22', phase: 'viaje-ida',     loc: 'Tenerife → Madrid',  icon: '✈️', note: 'Flight TFN→MAD. Night in Madrid or straight to T4 terminal.' },
+  { date: '2027-02-23', phase: 'viaje-ida',     loc: 'Madrid → Hong Kong', icon: '✈️', note: 'Overnight Cathay Pacific flight MAD→HKG. Using Asiamiles points. Arrival on the 24th.' },
+  { date: '2027-02-24', phase: 'hong-kong',     loc: 'Hong Kong',          icon: '🏙️', note: 'Arrive HKG. Transfer to Discovery Bay. Check-in Auberge Discovery Bay. Rest — jet lag recovery.' },
+  { date: '2027-02-25', phase: 'hong-kong',     loc: 'Hong Kong',          icon: '🏙️', note: 'Day in Discovery Bay. Visit Giles and Christine. Walk by the sea.' },
+  { date: '2027-02-26', phase: 'osaka-llegada', loc: 'Hong Kong → Osaka',  icon: '✈️', note: 'Flight HKG→KIX (Osaka). Arrival in Japan. Check-in hotel or Airbnb in Osaka.' },
+  { date: '2027-02-27', phase: 'osaka-llegada', loc: 'Osaka',              icon: '🏯', note: 'Explore Dotonbori and Namba. Sort campervan booking and pick-up logistics.' },
+  { date: '2027-02-28', phase: 'osaka-llegada', loc: 'Osaka',              icon: '🏯', note: 'Last day before the campervan. Shopping, route map and prep.' },
+  { date: '2027-03-01', phase: 'autocaravana',  loc: 'Osaka → Kobe',       icon: '🚐', note: "Pick up campervan in the morning. First stop: Kobe (30 km). Let's go!" },
+  { date: '2027-03-02', phase: 'autocaravana',  loc: 'Kobe',               icon: '🚐', note: '🥩 UNMISSABLE: Kobe Beef (Wagyu A5). Kobe Harbour. Kitano Ijinkan.' },
+  { date: '2027-03-03', phase: 'autocaravana',  loc: 'Nara',               icon: '🚐', note: '🦌 Nara Park: the sacred deer. Tōdai-ji. Perfect for the kids. Buggy-friendly.' },
+  { date: '2027-03-04', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Arrive in Kyoto. Settle in. Evening stroll through the Gion district.' },
+  { date: '2027-03-05', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Fushimi Inari (early — before the crowds). Kinkaku-ji in the afternoon.' },
+  { date: '2027-03-06', phase: 'autocaravana',  loc: 'Kyoto',              icon: '🚐', note: 'Arashiyama: bamboo grove and Tenryu-ji. Nishiki Market for food and shopping.' },
+  { date: '2027-03-07', phase: 'autocaravana',  loc: 'Route TBD',          icon: '🚐', note: "Options: Hiroshima + Miyajima, Himeji, San'in coast... To be decided." },
+  { date: '2027-03-08', phase: 'autocaravana',  loc: 'Route TBD',          icon: '🚐', note: 'To be decided based on itinerary and how the kids are doing.' },
+  { date: '2027-03-09', phase: 'autocaravana',  loc: 'Route TBD',          icon: '🚐', note: 'To be decided based on the final itinerary.' },
+  { date: '2027-03-10', phase: 'autocaravana',  loc: 'Route → Osaka',      icon: '🚐', note: 'Last night in the campervan. Head back towards Osaka to return the vehicle.' },
+  { date: '2027-03-11', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Return campervan. Check-in hotel or Airbnb in Osaka. Finally, a proper shower!' },
+  { date: '2027-03-12', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Free day in Osaka. Shinsaibashi, Tsutenkaku, spots still to explore.' },
+  { date: '2027-03-13', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'To decide: day trip or full rest in Osaka.' },
+  { date: '2027-03-14', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'To be decided.' },
+  { date: '2027-03-15', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'To be decided.' },
+  { date: '2027-03-16', phase: 'hoteles',       loc: 'Osaka',              icon: '🏨', note: 'Last day in Japan. Final shopping, souvenirs, pack up the bags.' },
+  { date: '2027-03-17', phase: 'regreso',       loc: 'Osaka → Hong Kong',  icon: '✈️', note: 'Flight KIX→HKG. Hotel in Hong Kong (airport or Discovery Bay).' },
+  { date: '2027-03-18', phase: 'regreso',       loc: 'Hong Kong',          icon: '🏙️', note: 'Stopover in HK. Rest and prepare for the long overnight flight home.' },
+  { date: '2027-03-19', phase: 'regreso',       loc: 'Hong Kong → Madrid', icon: '✈️', note: 'Overnight Cathay Pacific flight HKG→MAD. Using Asiamiles points.' },
+  { date: '2027-03-20', phase: 'regreso',       loc: 'Madrid',             icon: '🏨', note: 'Early morning arrival in Madrid. Night at a T4 hotel (IBIS, NH or similar).' },
+  { date: '2027-03-21', phase: 'regreso',       loc: 'Madrid → Tenerife',  icon: '✈️', note: 'Final flight MAD→TFN! Welcome home. End of the trip.' },
 ];
 
 const DESTINATIONS = [
   {
     id: 'hong-kong',
     name: 'Hong Kong',
-    subtitle: 'Discovery Bay · Albush Hotel',
+    subtitle: 'Discovery Bay · <a href="https://www.aubergediscoverybay.com/en-us" target="_blank" rel="noopener">Auberge Discovery Bay</a>',
     flag: '🇭🇰',
-    days: '2 noches — Días 3–4',
+    days: '2 nights — Days 3–4',
     phase: 'hong-kong',
-    desc: 'Primera parada. Llegamos tras el vuelo nocturno desde Madrid. Dos noches en Discovery Bay para recuperar el jet lag con los niños antes de entrar a Japón.',
+    desc: 'First stop. We arrive after the overnight flight from Madrid. Two nights in Discovery Bay to recover from jet lag with the kids before entering Japan.',
     highlights: [
-      'Discovery Bay — tranquilo, sin coches, junto al mar',
-      'Albush Hotel — alojamiento (por confirmar)',
-      'Reunión con Giles y Christine',
-      'Victoria Peak (opcional si hay energía)',
+      'Discovery Bay — quiet, car-free, right by the sea',
+      '<a href="https://www.aubergediscoverybay.com/en-us" target="_blank" rel="noopener">Auberge Discovery Bay</a> — accommodation (to confirm)',
+      'Visit Giles and Christine',
+      'Victoria Peak (optional if we have the energy)',
     ],
-    kids: 'Ideal — Discovery Bay es llana, sin tráfico, perfecta para recuperarse del viaje con niños pequeños.',
+    kids: 'Ideal — Discovery Bay is flat, traffic-free, perfect for recovering from the trip with little ones.',
   },
   {
     id: 'osaka',
     name: 'Osaka',
-    subtitle: 'Base · Dotonbori · Autocaravana',
+    subtitle: 'Base · Dotonbori · Campervan',
     flag: '🇯🇵',
-    days: 'Días 5–7 + 18–23',
+    days: 'Days 5–7 + 18–23',
     phase: 'osaka-llegada',
-    desc: 'Ciudad de entrada y salida del tour en autocaravana. Los primeros días nos instalamos y recogemos el vehículo. Al final devolvemos la auto y disfrutamos la ciudad sin prisa.',
+    desc: 'Entry and exit city for the campervan tour. The first days we settle in and collect the vehicle. At the end we return the campervan and enjoy the city at our own pace.',
     highlights: [
-      'Dotonbori — gastronomía callejera y neones por la noche',
-      'Osaka Castle — impresionante, con amplio parque alrededor',
-      'Namba — el corazón comercial y gastronómico',
-      'Base logística para recogida y devolución de autocaravana',
+      'Dotonbori — street food and neon lights at night',
+      'Osaka Castle — impressive, with a large park around it',
+      'Namba — the commercial and gastronomic heart',
+      'Logistics base for campervan pick-up and return',
     ],
-    kids: 'Muy buena — zonas peatonales amplias, mucha comida accesible para niños. Fácil con carrito.',
+    kids: 'Very good — wide pedestrian areas, lots of accessible food for kids. Easy with a buggy.',
   },
   {
     id: 'kobe',
     name: 'Kobe',
-    subtitle: 'La carne más famosa del mundo',
+    subtitle: "The world's most famous beef",
     flag: '🇯🇵',
-    days: 'Días 8–9 — autocaravana',
+    days: 'Days 8–9 — campervan',
     phase: 'autocaravana',
-    desc: 'A 30 km de Osaka, Kobe es parada obligatoria del viaje. Razón principal: la auténtica carne de Kobe (Wagyu A5 grado). El puerto y el barrio histórico son un plus inesperado.',
+    desc: '30 km from Osaka, Kobe is a must-stop on this trip. Main reason: authentic Kobe Beef (Wagyu A5 grade). The harbour and historic district are an unexpected bonus.',
     highlights: [
-      '🥩 Kobe Beef (Wagyu A5) — razón suficiente para venir',
-      'Puerto de Kobe — paseo agradable junto al mar',
-      'Kitano Ijinkan — barrio histórico extranjero',
-      'Nunobiki Herb Garden (telecabina con vistas)',
+      '🥩 Kobe Beef (Wagyu A5) — reason enough to come',
+      'Kobe Harbour — lovely waterfront walk',
+      'Kitano Ijinkan — historic foreign quarter',
+      'Nunobiki Herb Garden (cable car with views)',
     ],
-    kids: 'Buena — ciudad compacta y fácil de recorrer. Entorno portuario agradable con carrito.',
+    kids: 'Good — compact city, easy to get around. Pleasant harbour area with a buggy.',
   },
   {
     id: 'nara',
     name: 'Nara',
-    subtitle: 'Los ciervos sagrados 🦌',
+    subtitle: 'The sacred deer 🦌',
     flag: '🇯🇵',
-    days: 'Día 10 — autocaravana',
+    days: 'Day 10 — campervan',
     phase: 'autocaravana',
-    desc: 'Posiblemente la parada más mágica del viaje para los niños. Cientos de ciervos deambulan libres por el parque y aceptan galletas de mano. Una experiencia que recordarán siempre.',
+    desc: "Possibly the most magical stop of the trip for the kids. Hundreds of deer roam freely through the park and accept crackers from your hand. An experience they'll remember forever.",
     highlights: [
-      '🦌 Ciervos libres por el parque — dóciles, aceptan galletas',
-      'Tōdai-ji — el Gran Buda de bronce más grande del mundo',
-      'Nara Park — enorme, llano, perfecto con carrito',
-      'A 45 min de Kyoto o Osaka en coche',
+      '🦌 Free-roaming deer — docile, they accept crackers',
+      "Tōdai-ji — the world's largest bronze Great Buddha",
+      'Nara Park — huge, flat, perfect with a buggy',
+      '45 min from Kyoto or Osaka by car',
     ],
-    kids: 'Excelente ⭐ — la mejor parada para los niños. Parque completamente llano. Los ciervos interaccionan directamente. Imprescindible.',
+    kids: 'Excellent ⭐ — best stop for the kids. Completely flat park. The deer interact directly. Essential.',
   },
   {
     id: 'kyoto',
     name: 'Kyoto',
-    subtitle: 'La antigua capital imperial',
+    subtitle: 'The ancient imperial capital',
     flag: '🇯🇵',
-    days: 'Días 11–13 — autocaravana',
+    days: 'Days 11–13 — campervan',
     phase: 'autocaravana',
-    desc: 'La ciudad más histórica de Japón y una de las más bellas del mundo. Mínimo 2–3 noches para ver lo esencial. Posiblemente una noche en ryokan para la experiencia completa.',
+    desc: "Japan's most historic city and one of the most beautiful in the world. At least 2–3 nights to see the essentials. Possibly one night in a ryokan for the full experience.",
     highlights: [
-      'Arashiyama — bamboo grove y templo Tenryu-ji (carrito-friendly)',
-      'Gion — barrio geisha al atardecer',
-      'Fushimi Inari — los 10.000 toriis naranjas (madrugar)',
-      'Kinkaku-ji — el Pabellón Dorado',
-      'Nishiki Market — mercado cubierto para comer y comprar',
+      'Arashiyama — bamboo grove and Tenryu-ji temple (buggy-friendly)',
+      'Gion — geisha district at dusk',
+      'Fushimi Inari — the 10,000 orange torii gates (go early)',
+      'Kinkaku-ji — the Golden Pavilion',
+      'Nishiki Market — covered market for food and shopping',
     ],
-    kids: 'Buena con planificación — Arashiyama y Gion accesibles con carrito. Fushimi Inari tiene escaleras: ir temprano o con el mayor en brazos. Evitar calor del mediodía.',
+    kids: 'Good with planning — Arashiyama and Gion accessible with a buggy. Fushimi Inari has stairs: go early or carry the older one. Avoid midday heat.',
   },
   {
     id: 'tbd',
-    name: 'Por explorar',
-    subtitle: 'Días 14–17: 4 días libres',
+    name: 'To Explore',
+    subtitle: 'Days 14–17: 4 free days',
     flag: '❓',
-    days: 'Días 14–17 — 4 días libres',
+    days: 'Days 14–17 — 4 free days',
     phase: 'autocaravana',
-    desc: '4 días libres en autocaravana para decidir según ánimo, tiempo y los niños. Opciones abiertas — aquí van las más interesantes a valorar antes del viaje.',
+    desc: '4 free days in the campervan to decide on the day based on mood, weather and the kids. Open options — here are the most interesting ones to consider before the trip.',
     highlights: [
-      '🌊 Hiroshima + Miyajima — el torii en el mar, historia, accesible',
-      '🏔️ Hakone — Monte Fuji, onsens, ryokans (requiere desvío al este)',
-      '🏯 Himeji — el castillo más fotogénico de Japón',
-      '🌿 Costa San\'in — sin turistas, paisajes naturales espectaculares',
+      '🌊 Hiroshima + Miyajima — the torii in the sea, history, accessible',
+      '🏔️ Hakone — Mount Fuji, onsens, ryokans (requires a detour east)',
+      "🏯 Himeji — Japan's most photogenic castle",
+      "🌿 San'in Coast — no tourists, spectacular natural scenery",
     ],
-    kids: 'Variable por destino. Hiroshima y Miyajima muy accesibles. Hakone requiere más energía. San\'in es naturaleza pura e ideal para desconectar.',
+    kids: 'Varies by destination. Hiroshima and Miyajima very accessible. Hakone requires more energy. San\'in is pure nature, ideal for switching off.',
   },
 ];
 
 const CAMPERVAN_SECTIONS = [
   {
     id: 'por-que',
-    title: '¿Por qué autocaravana en Japón?',
+    title: 'Why a campervan in Japan?',
     icon: '🚐',
-    content: `Japón en autocaravana con bebés tiene sentido único:
+    content: `Campervanning in Japan with babies makes unique sense:
 
-- Flexibilidad total de horarios — crítico con niños pequeños
-- La cuna/cama de los niños viaja con nosotros
-- Sin maletas en taxis ni con carrito en estaciones
-- Cocinar cuando queramos — ahorro y comodidad
-- Parar donde y cuando queramos
-- Japón tiene excelentes Michi-no-Eki (áreas de descanso) y está bien preparado para campervans
+- Total schedule flexibility — critical with young children
+- The kids' cot/bed travels with us
+- No luggage in taxis or manoeuvring a buggy through stations
+- Cook whenever we want — saving money and convenience
+- Stop wherever and whenever we want
+- Japan has excellent Michi-no-Eki (roadside rest areas) and is well set up for campervans
 
-A diferencia de Europa, Japón tiene pocos campings "salvajes" pero las Michi-no-Eki son aparcamientos gratuitos con tiendas, restaurantes y baños — suficiente para pernoctar bien.`,
+Unlike Europe, Japan has few "wild" camping spots but the Michi-no-Eki are free car parks with shops, restaurants and toilets — more than enough for a comfortable overnight stop.`,
   },
   {
     id: 'alquiler',
-    title: 'Alquiler en Osaka',
+    title: 'Rental in Osaka',
     icon: '🔑',
-    content: `Empresas a investigar:
-- Japan Campers (japancampers.com) — especialistas, inglés, opciones familiares
-- Rental Car Japan — mayor flota, opciones variadas
-- Nippon Rent-A-Car — fiable, cobertura nacional
-- Toyota Rent a Car — amplia red de puntos de recogida
+    content: `Companies to research:
+- Japan Campers (japancampers.com) — specialists, English, family options
+- Rental Car Japan — largest fleet, varied options
+- Nippon Rent-A-Car — reliable, national coverage
+- Toyota Rent a Car — wide pick-up point network
 
-Pedir/verificar:
-- Vehículo con espacio para 4 personas + equipaje de 28 días
-- Asientos infantiles integrados o alquilados (bebé + niño 3 años)
-- GPS en inglés o español
-- Seguro completo zero excess
-- ETC card para peajes de autopista
+Ask/verify:
+- Vehicle with space for 4 people + 28 days of luggage
+- Child seats included or rented (baby + 3-year-old)
+- GPS in English or Spanish
+- Full insurance, zero excess
+- ETC card for motorway tolls
 
-Logística clave:
-- Recoger: lunes 1 Mar 2027 (mañana, zona Osaka/KIX)
-- Devolver: jueves 11 Mar 2027 (mismo punto o Osaka centro)
-- Precio estimado: investigar (presupuesto aproximado ~€150-200/día todo incluido)`,
+Key logistics:
+- Pick up: Monday 1 Mar 2027 (morning, Osaka/KIX area)
+- Return: Thursday 11 Mar 2027 (same point or central Osaka)
+- Estimated price: research needed (rough budget ~€150–200/day all-in)`,
   },
   {
     id: 'ruta',
-    title: 'Ruta planificada',
+    title: 'Planned Route',
     icon: '🗺️',
-    content: `Días 8-10 (1-3 Mar): Osaka → Kobe → Nara
-  1 Mar: Osaka → Kobe (30 km, autopista Hanshin)
-  2 Mar: Kobe — Kobe Beef + puerto + Kitano
-  3 Mar: Kobe → Nara (80 km). Nara Park tarde.
+    content: `Days 8–10 (1–3 Mar): Osaka → Kobe → Nara
+  1 Mar: Osaka → Kobe (30 km, Hanshin motorway)
+  2 Mar: Kobe — Kobe Beef + harbour + Kitano
+  3 Mar: Kobe → Nara (80 km). Nara Park in the afternoon.
 
-Días 11-13 (4-6 Mar): Nara → Kyoto
-  4 Mar: Nara → Kyoto (50 km). Llegada, Gion al atardecer.
-  5 Mar: Kyoto — Fushimi Inari (amanecer) + Kinkaku-ji
+Days 11–13 (4–6 Mar): Nara → Kyoto
+  4 Mar: Nara → Kyoto (50 km). Arrive, Gion at dusk.
+  5 Mar: Kyoto — Fushimi Inari (dawn) + Kinkaku-ji
   6 Mar: Kyoto — Arashiyama + Nishiki Market
 
-Días 14-17 (7-10 Mar): TBD — 4 días libres
-  Opciones en orden de preferencia:
-  A) Hiroshima + Miyajima: 200 km desde Kyoto, 1-2 noches
-  B) Himeji: 100 km desde Kyoto, 1 noche
-  C) Costa San'in: al norte, sin turistas
-  D) Relajar en algún área con onsen (baño termal)
+Days 14–17 (7–10 Mar): TBD — 4 free days
+  Options in order of preference:
+  A) Hiroshima + Miyajima: 200 km from Kyoto, 1–2 nights
+  B) Himeji: 100 km from Kyoto, 1 night
+  C) San'in Coast: to the north, no tourists
+  D) Relax at an area with an onsen (hot spring bath)
 
-Km totales aprox: 400-650 km en 10 días (muy manejable)`,
+Total km approx: 400–650 km over 10 days (very manageable)`,
   },
   {
     id: 'practico',
-    title: 'Info práctica',
+    title: 'Practical Info',
     icon: '📋',
-    content: `CONDUCIR EN JAPÓN:
-- Conducción por la izquierda (igual que UK — ya lo conocemos)
-- Carnet Internacional de Conducir + carnet español — OBLIGATORIO
-- Peajes en autopistas: ETC card (pedir al alquilar) o pagar en efectivo
-- GPS esencial — señales en japonés. Pedir GPS en inglés al alquilar.
-- Velocidad máxima autopista: 100 km/h. Radares frecuentes.
+    content: `DRIVING IN JAPAN:
+- Drive on the left (same as UK — we know this)
+- International Driving Licence + Spanish licence — MANDATORY
+- Motorway tolls: ETC card (request when hiring) or pay cash
+- GPS essential — signs in Japanese. Request English GPS when hiring.
+- Motorway speed limit: 100 km/h. Speed cameras frequent.
 
-PERNOCTAS:
-- Michi-no-Eki: áreas de descanso gratuitas con servicios, muy frecuentes en rutas
-- RV Parks (¥1.000-3.000/noche): agua y electricidad incluidos
-- Campings (¥2.000-5.000): ducha, lavadora, cocina comunal
+OVERNIGHT STOPS:
+- Michi-no-Eki: free roadside rest areas with facilities, very common on routes
+- RV Parks (¥1,000–3,000/night): water and electricity included
+- Campgrounds (¥2,000–5,000): shower, laundry, communal kitchen
 
-CON BEBÉS EN LA AUTOCARAVANA:
-- Asientos de coche: llevar los propios o alquilar con el vehículo
-- Calentar biberones: combustible de camping o en combini (7-Eleven)
-- Pañales: comprar en Japón — marcas Merries/Goon son superiores
-- Farmacia japonesa (ドラッグストア): tiene de todo, buscar Matsumoto Kiyoshi
-- Carrito: llevar el compacto — aceras japonesas pueden ser estrechas`,
+WITH BABIES IN THE CAMPERVAN:
+- Car seats: bring our own or hire with the vehicle
+- Warming bottles: camping gas or at a combini (7-Eleven)
+- Nappies: buy in Japan — Merries/Goon brands are superior
+- Japanese pharmacy (ドラッグストア): has everything, look for Matsumoto Kiyoshi
+- Buggy: bring the compact one — Japanese pavements can be narrow`,
   },
 ];
 
 const LOGISTICA_SECTIONS = [
   {
     id: 'vuelos',
-    title: 'Vuelos',
+    title: 'Flights',
     icon: '✈️',
     type: 'flights',
     flights: [
-      { from: 'TFN', to: 'MAD', date: '22 Feb 2027', note: 'Binter o Iberia — por reservar' },
-      { from: 'MAD', to: 'HKG', date: '22–23 Feb 2027', note: 'Cathay Pacific · puntos Asiamiles · RESERVAR PRONTO' },
-      { from: 'HKG', to: 'KIX (Osaka)', date: '26 Feb 2027', note: 'Cathay Pacific o Peach — por reservar' },
-      { from: 'KIX (Osaka)', to: 'HKG', date: '17 Mar 2027', note: 'Peach o Cathay Pacific — por reservar' },
-      { from: 'HKG', to: 'MAD', date: '18–19 Mar 2027', note: 'Cathay Pacific · puntos Asiamiles · RESERVAR PRONTO' },
-      { from: 'MAD', to: 'TFN', date: '21 Mar 2027', note: 'Binter o Iberia — por reservar' },
+      { from: 'TFN', to: 'MAD', date: '22 Feb 2027', note: 'Binter or Iberia — to book' },
+      { from: 'MAD', to: 'HKG', date: '22–23 Feb 2027', note: 'Cathay Pacific · Asiamiles points · BOOK SOON' },
+      { from: 'HKG', to: 'KIX (Osaka)', date: '26 Feb 2027', note: 'Cathay Pacific or Peach — to book' },
+      { from: 'KIX (Osaka)', to: 'HKG', date: '17 Mar 2027', note: 'Peach or Cathay Pacific — to book' },
+      { from: 'HKG', to: 'MAD', date: '18–19 Mar 2027', note: 'Cathay Pacific · Asiamiles points · BOOK SOON' },
+      { from: 'MAD', to: 'TFN', date: '21 Mar 2027', note: 'Binter or Iberia — to book' },
     ],
   },
   {
     id: 'alojamiento',
-    title: 'Alojamiento',
+    title: 'Accommodation',
     icon: '🏨',
     type: 'notes',
-    content: `HONG KONG (2 noches):
-  Albush Hotel, Discovery Bay — Check-in: 24 Feb · Check-out: 26 Feb
+    content: `HONG KONG (2 nights):
+  Auberge Discovery Bay — Check-in: 24 Feb · Check-out: 26 Feb
 
-OSAKA — LLEGADA (3 noches):
-  Hotel o Airbnb cerca de Namba o Shinsaibashi
+OSAKA — ARRIVAL (3 nights):
+  Hotel or Airbnb near Namba or Shinsaibashi
   Check-in: 26 Feb · Check-out: 1 Mar
 
-AUTOCARAVANA (10 noches):
-  1 Mar → 11 Mar (ver sección Autocaravana)
+CAMPERVAN (10 nights):
+  1 Mar → 11 Mar (see Campervan section)
 
-OSAKA — VUELTA (6 noches):
-  Hotel o Airbnb zona similar
+OSAKA — RETURN (6 nights):
+  Hotel or Airbnb, similar area
   Check-in: 11 Mar · Check-out: 17 Mar
 
-HONG KONG — ESCALA (1 noche):
-  Hotel aeropuerto o zona Discovery Bay
+HONG KONG — STOPOVER (1 night):
+  Airport hotel or Discovery Bay area
   Check-in: 18 Mar · Check-out: 19 Mar
 
-MADRID — ESCALA (1 noche):
-  Hotel Terminal T4 (IBIS, AC Airport o NH Madrid)
+MADRID — STOPOVER (1 night):
+  Hotel at T4 terminal (IBIS, AC Airport or NH Madrid)
   Check-in: 20 Mar · Check-out: 21 Mar`,
   },
   {
     id: 'docs',
-    title: 'Documentación',
+    title: 'Documents',
     icon: '📄',
     type: 'checklist',
     items: [
-      'Pasaportes (4) — verificar que no caducan antes de Sep 2027',
-      'Carnet de conducir Internacional (Papá) — tramitar en DGT',
-      'Tarjeta sanitaria europea (EHIC) — revisión de vigencia',
-      'Seguro médico de viaje — cubrir a los 4, zona Asia',
-      'Póliza de cancelación de vuelos',
-      'Visado Japón — verificar requisitos para pasaporte español',
-      'Vacunas de viaje — consultar médico 60 días antes',
-      'Contactos de emergencia impresos y en Drive',
-      'Copia digital de todos los documentos (carpeta Drive "Japón 2027")',
+      "Passports (4) — check they don't expire before Sep 2027",
+      'International Driving Licence (Daddey) — apply at DGT',
+      'European Health Insurance Card (EHIC) — check validity',
+      'Travel health insurance — cover all 4, Asia zone',
+      'Flight cancellation policy',
+      'Japan visa — check requirements for Spanish passport',
+      'Travel vaccinations — see a doctor 60 days before',
+      'Emergency contacts printed and in Drive',
+      'Digital copy of all documents (Drive folder "Japan 2027")',
     ],
   },
   {
     id: 'equipaje',
-    title: 'Equipaje — Lista base',
+    title: 'Packing — Base List',
     icon: '🧳',
     type: 'checklist',
     items: [
-      'Maletas (2) + mochilas de mano',
-      'Carrito compacto / silla de paseo',
-      'Portabebés ergonómico (Ergobaby o similar)',
-      'Asientos de coche infantiles (bebé + niño 3 años)',
-      'Adaptador de corriente japonés (tipo A — igual que USA)',
-      'Tarjeta SIM japonesa — reservar en Amazon JP o comprar en aeropuerto HKG/KIX',
-      'Tarjeta IC de transporte (Suica o ICOCA) — comprar al llegar',
-      'Ropa: finales invierno / principios primavera Kansai (5–15°C)',
-      'Impermeables ligeros (lluvia de primavera en Japón)',
-      'Medicamentos: fiebre, diarrea, alergia, dolor — para adultos y niños',
+      'Suitcases (2) + hand luggage bags',
+      'Compact buggy / pushchair',
+      'Ergonomic baby carrier (Ergobaby or similar)',
+      'Child car seats (baby + 3-year-old)',
+      'Japanese plug adapter (Type A — same as USA)',
+      'Japanese SIM card — order on Amazon JP or buy at HKG/KIX airport',
+      'IC transport card (Suica or ICOCA) — buy on arrival',
+      'Clothes: late winter / early spring Kansai (5–15°C)',
+      'Light waterproofs (spring rain in Japan)',
+      'Medicines: fever, diarrhoea, allergy, pain — for adults and children',
     ],
   },
   {
     id: 'ninos',
-    title: 'Japón con bebés — lo que hay que saber',
+    title: 'Babies in Japan — what you need to know',
     icon: '👶',
     type: 'notes',
-    content: `PAÑALES Y PRODUCTOS:
-  - Pañales japoneses son los mejores del mundo: Merries, Goon, Moony
-  - Comprar allí — no traer muchos de Tenerife
-  - Farmacia local: buscar Matsumoto Kiyoshi o Sugi Pharmacy (ドラッグストア)
-  - Fórmula láctea: llevar la habitual o verificar equivalencia Meiji/Morinaga
+    content: `NAPPIES AND PRODUCTS:
+  - Japanese nappies are the best in the world: Merries, Goon, Moony
+  - Buy there — don't bring too many from Tenerife
+  - Local pharmacy: look for Matsumoto Kiyoshi or Sugi Pharmacy (ドラッグストア)
+  - Baby formula: bring the usual or verify equivalence with Meiji/Morinaga
 
-TRANSPORTE:
-  - Trenes japoneses MUY cómodos con carrito — ascensores en casi todas las estaciones
-  - Taxis sin asientos de bebé integrados — autocaravana lo soluciona
-  - Combinis (7-Eleven, Lawson, FamilyMart): calentadores de biberones, cambiadores
+TRANSPORT:
+  - Japanese trains VERY comfortable with a buggy — lifts in almost all stations
+  - Taxis without integrated baby seats — the campervan solves this
+  - Combinis (7-Eleven, Lawson, FamilyMart): bottle warmers, changing tables
 
-RESTAURANTES:
-  - Los japoneses adoran a los bebés — bienvenidos en prácticamente todos lados
-  - Family restaurants (ファミレス) tienen tronas y menú infantil
-  - Family rooms en centros comerciales y estaciones grandes
+RESTAURANTS:
+  - Japanese people love babies — welcome in practically everywhere
+  - Family restaurants (ファミレス) have high chairs and a children's menu
+  - Family rooms in large shopping centres and stations
 
-TEMPERATURA FEB-MAR EN KANSAI:
-  - Febrero: 5–12°C. Abrigos necesarios.
-  - Marzo: 8–16°C. Variable, llevar capas.
-  - Lluvia de primavera: impermeables ligeros
+TEMPERATURE FEB–MAR IN KANSAI:
+  - February: 5–12°C. Coats needed.
+  - March: 8–16°C. Variable, layer up.
+  - Spring rain: light waterproofs
 
-SAKURA (CEREZOS):
-  - Floración típica: finales de marzo / principios de abril en Kansai
-  - En 2027 podría haber early bloom a finales de marzo — posible ver algo al final del viaje
-  - No garantizado pero posible bonus`,
+CHERRY BLOSSOM:
+  - Typical bloom: late March / early April in Kansai
+  - In 2027 there could be an early bloom at the end of March — possible to catch some at the end of the trip
+  - Not guaranteed but a possible bonus`,
   },
 ];
 
@@ -370,7 +370,7 @@ function updateCountdown() {
   if (diff <= 0) {
     ['cd-days','cd-hours','cd-mins'].forEach(id => { const e = document.getElementById(id); if (e) e.textContent = '0'; });
     const hd = document.getElementById('header-days');
-    if (hd) hd.textContent = '¡YA!';
+    if (hd) hd.textContent = 'NOW!';
     return;
   }
   const days  = Math.floor(diff / 86400000);
@@ -386,10 +386,10 @@ function updateCountdown() {
 // ===== DATE UTILS =====
 function fmtShort(s) {
   const d = new Date(s + 'T12:00:00');
-  return d.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 }
 function fmtWeekday(s) {
-  return new Date(s + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'long' });
+  return new Date(s + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long' });
 }
 
 // ===== RENDER: PHASES OVERVIEW =====
@@ -469,8 +469,8 @@ function renderDestinations() {
           <p class="dest-desc">${d.desc}</p>
           <ul class="dest-highlights">${d.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
           <div class="dest-kids">${d.kids}</div>
-          <div class="dest-notes-label">Notas de investigación</div>
-          <div class="dest-notes" contenteditable="true" data-key="${key}" data-placeholder="Añade aquí links, restaurantes, horarios, precios..." spellcheck="false">${note || ''}</div>
+          <div class="dest-notes-label">Research notes</div>
+          <div class="dest-notes" contenteditable="true" data-key="${key}" data-placeholder="Add links, restaurants, hours, prices..." spellcheck="false">${note || ''}</div>
         </div>
       </div>
     `;

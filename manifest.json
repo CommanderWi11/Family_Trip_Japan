@@ -1,7 +1,7 @@
 {
-  "name": "Japón 2027 · Familia",
-  "short_name": "Japón 2027",
-  "description": "Planificador del viaje familiar a Japón — Feb/Mar 2027",
+  "name": "Japan 2027 · Family",
+  "short_name": "Japan 2027",
+  "description": "Family trip planner to Japan — Feb/Mar 2027",
   "start_url": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
